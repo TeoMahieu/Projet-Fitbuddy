@@ -10,7 +10,7 @@ genai.configure(api_key=API_KEY)
 
 # 📊 Connexion à DynamoDB (AWS)
 dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
-table = dynamodb.Table("fitbuddy_gamification")
+table = dynamodb.Table("StockageDataFitBuddy")
 
 # 🎮 Système de Gamification : Calcul des points
 def calculate_points(training_data):
@@ -55,7 +55,7 @@ def analyze_progress(user_id):
 def get_fitness_recommendation(user_id, age, weight, goal):
     prompt = f"""
     Je suis un utilisateur de {age} ans, pesant {weight} kg, et mon objectif est {goal}.
-    Peux-tu me proposer un plan d'entraînement personnalisé ?
+    Peux-tu me proposer un defi ?
     """
 
     model = genai.GenerativeModel("gemini-2.0-flash")
